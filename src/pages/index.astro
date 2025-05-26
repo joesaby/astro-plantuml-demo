@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Astro PlantUML Demo - Documentation">
+  <main class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8">Astro PlantUML Demo</h1>
+    
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Project Setup</h2>
+      <div class="prose max-w-none">
+        <h3>Prerequisites</h3>
+        <ul>
+          <li>Node.js (version 18 or higher recommended)</li>
+          <li>npm or yarn package manager</li>
+        </ul>
+
+        <h3>Installation Steps</h3>
+        <ol>
+          <li>Clone the repository</li>
+          <li>Install dependencies:
+            <pre><code>npm install</code></pre>
+          </li>
+          <li>Start the development server:
+            <pre><code>npm run dev</code></pre>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Configuration</h2>
+      <div class="prose max-w-none">
+        <h3>astro.config.mjs</h3>
+        <p>The project uses the following configuration:</p>
+        <pre><code>{`import { defineConfig } from 'astro/config';
+import plantuml from 'astro-plantuml';
+
+export default defineConfig({
+  integrations: [plantuml()],
+});`}</code></pre>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Using PlantUML in Astro</h2>
+      <div class="prose max-w-none">
+        <h3>Basic Usage</h3>
+        <p>You can use PlantUML diagrams in your Astro components using the following syntax:</p>
+        <pre><code>{`---
+// Your component imports and logic here
+---
+
+<PlantUML>
+@startuml
+Alice -> Bob: Hello
+Bob --> Alice: Hi there!
+@enduml
+</PlantUML>`}</code></pre>
+
+        <h3>Supported Diagram Types</h3>
+        <ul>
+          <li>Sequence diagrams</li>
+          <li>Class diagrams</li>
+          <li>Activity diagrams</li>
+          <li>Use case diagrams</li>
+          <li>State diagrams</li>
+          <li>Component diagrams</li>
+        </ul>
+
+        <h3>Example Pages</h3>
+        <p>This demo includes examples of various diagram types. You can find them in the following pages:</p>
+        <ul>
+          <li><a href="/sequence">Sequence Diagram Example</a></li>
+          <li><a href="/class">Class Diagram Example</a></li>
+          <li><a href="/activity">Activity Diagram Example</a></li>
+          <li><a href="/usecase">Use Case Diagram Example</a></li>
+          <li><a href="/state">State Diagram Example</a></li>
+          <li><a href="/component">Component Diagram Example</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="text-2xl font-semibold mb-4">Additional Resources</h2>
+      <div class="prose max-w-none">
+        <ul>
+          <li><a href="https://astro.build" target="_blank" rel="noopener">Astro Documentation</a></li>
+          <li><a href="https://plantuml.com" target="_blank" rel="noopener">PlantUML Documentation</a></li>
+          <li><a href="https://www.npmjs.com/package/astro-plantuml" target="_blank" rel="noopener">astro-plantuml Package</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .prose pre {
+    background-color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+  }
+  .prose code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+  .prose a {
+    color: #2563eb;
+    text-decoration: underline;
+  }
+  .prose a:hover {
+    color: #1d4ed8;
+  }
+</style> 
