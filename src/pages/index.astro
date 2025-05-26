@@ -1,14 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import DocLayout from '../layouts/DocLayout.astro';
 ---
 
-<Layout title="Astro PlantUML Demo - Documentation">
-  <main class="container mx-auto px-4 py-8">
+<DocLayout title="Astro PlantUML Demo">
+  <div class="prose">
     <h1 class="text-4xl font-bold mb-8">Astro PlantUML Demo</h1>
     
-    <section class="mb-12">
+    <section id="setup" class="mb-12">
       <h2 class="text-2xl font-semibold mb-4">Project Setup</h2>
-      <div class="prose max-w-none">
+      <div>
         <h3>Prerequisites</h3>
         <ul>
           <li>Node.js (version 18 or higher recommended)</li>
@@ -28,9 +28,9 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-    <section class="mb-12">
+    <section id="configuration" class="mb-12">
       <h2 class="text-2xl font-semibold mb-4">Configuration</h2>
-      <div class="prose max-w-none">
+      <div>
         <h3>astro.config.mjs</h3>
         <p>The project uses the following configuration:</p>
         <pre><code>{`import { defineConfig } from 'astro/config';
@@ -42,9 +42,9 @@ export default defineConfig({
       </div>
     </section>
 
-    <section class="mb-12">
+    <section id="usage" class="mb-12">
       <h2 class="text-2xl font-semibold mb-4">Using PlantUML in Astro</h2>
-      <div class="prose max-w-none">
+      <div>
         <h3>Basic Usage</h3>
         <p>You can use PlantUML diagrams in your Astro components using the following syntax:</p>
         <pre><code>{`---
@@ -58,38 +58,64 @@ Bob --> Alice: Hi there!
 @enduml
 </PlantUML>`}</code></pre>
 
-        <h3>Supported Diagram Types</h3>
-        <ul>
-          <li>Sequence diagrams</li>
-          <li>Class diagrams</li>
-          <li>Activity diagrams</li>
-          <li>Use case diagrams</li>
-          <li>State diagrams</li>
-          <li>Component diagrams</li>
-        </ul>
+        <h3>Example Diagrams</h3>
+        
+        <div id="sequence" class="mb-12">
+          <h4 class="text-xl font-semibold mb-4">Sequence Diagram</h4>
+          <pre><code>{`@startuml
+participant User
+participant "Web Browser" as Browser
+participant Server
 
-        <h3>Example Pages</h3>
-        <p>This demo includes examples of various diagram types. You can find them in the following pages:</p>
-        <ul>
-          <li><a href="/component">Component Diagram Example</a></li>
-          <li><a href="/state">State Diagram Example</a></li>
-          <li><a href="/use-case">Use Case Diagram Example</a></li>
-        </ul>
+User -> Browser: Navigate to website
+Browser -> Server: HTTP Request
+Server --> Browser: HTTP Response
+Browser --> User: Display page
+@enduml`}</code></pre>
+        </div>
+
+        <div id="class" class="mb-12">
+          <h4 class="text-xl font-semibold mb-4">Class Diagram</h4>
+          <pre><code>{`@startuml
+class Car {
+  - make: String
+  - model: String
+  - year: Integer
+  + start()
+  + stop()
+  + accelerate()
+}
+
+class Engine {
+  - cylinders: Integer
+  - horsepower: Integer
+  + ignite()
+  + shutdown()
+}
+
+Car "1" *-- "1" Engine : has
+@enduml`}</code></pre>
+        </div>
+
+        <div id="activity" class="mb-12">
+          <h4 class="text-xl font-semibold mb-4">Activity Diagram</h4>
+          <pre><code>{`@startuml
+start
+:Initialize process;
+if (Data valid?) then (yes)
+  :Process data;
+  :Save results;
+else (no)
+  :Log error;
+  :Send notification;
+endif
+stop
+@enduml`}</code></pre>
+        </div>
       </div>
     </section>
-
-    <section class="mb-12">
-      <h2 class="text-2xl font-semibold mb-4">Additional Resources</h2>
-      <div class="prose max-w-none">
-        <ul>
-          <li><a href="https://astro.build" target="_blank" rel="noopener">Astro Documentation</a></li>
-          <li><a href="https://plantuml.com" target="_blank" rel="noopener">PlantUML Documentation</a></li>
-          <li><a href="https://www.npmjs.com/package/astro-plantuml" target="_blank" rel="noopener">astro-plantuml Package</a></li>
-        </ul>
-      </div>
-    </section>
-  </main>
-</Layout>
+  </div>
+</DocLayout>
 
 <style>
   .prose pre {
@@ -108,4 +134,24 @@ Bob --> Alice: Hi there!
   .prose a:hover {
     color: #1d4ed8;
   }
-</style> 
+  /* Add smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+<script>
+  // Handle mobile navigation
+  document.querySelector('select')?.addEventListener('change', function(e) {
+    const target = e.target as HTMLSelectElement;
+    if (target.value) {
+      if (target.value.startsWith('#')) {
+        // Scroll to section
+        document.querySelector(target.value)?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        // Navigate to page
+        window.location.href = target.value;
+      }
+    }
+  });
+</script> 
