@@ -59,59 +59,13 @@ Bob --> Alice: Hi there!
 </PlantUML>`}</code></pre>
 
         <h3>Example Diagrams</h3>
-        
-        <div id="sequence" class="mb-12">
-          <h4 class="text-xl font-semibold mb-4">Sequence Diagram</h4>
-          <pre><code>{`@startuml
-participant User
-participant "Web Browser" as Browser
-participant Server
-
-User -> Browser: Navigate to website
-Browser -> Server: HTTP Request
-Server --> Browser: HTTP Response
-Browser --> User: Display page
-@enduml`}</code></pre>
-        </div>
-
-        <div id="class" class="mb-12">
-          <h4 class="text-xl font-semibold mb-4">Class Diagram</h4>
-          <pre><code>{`@startuml
-class Car {
-  - make: String
-  - model: String
-  - year: Integer
-  + start()
-  + stop()
-  + accelerate()
-}
-
-class Engine {
-  - cylinders: Integer
-  - horsepower: Integer
-  + ignite()
-  + shutdown()
-}
-
-Car "1" *-- "1" Engine : has
-@enduml`}</code></pre>
-        </div>
-
-        <div id="activity" class="mb-12">
-          <h4 class="text-xl font-semibold mb-4">Activity Diagram</h4>
-          <pre><code>{`@startuml
-start
-:Initialize process;
-if (Data valid?) then (yes)
-  :Process data;
-  :Save results;
-else (no)
-  :Log error;
-  :Send notification;
-endif
-stop
-@enduml`}</code></pre>
-        </div>
+        <p>Explore different types of PlantUML diagrams:</p>
+        <ul>
+          <li><a href="/sequence">Sequence Diagram</a> - Shows interactions between different actors over time</li>
+          <li><a href="/class">Class Diagram</a> - Displays the structure of classes and their relationships</li>
+          <li><a href="/activity">Activity Diagram</a> - Illustrates workflow and decision processes</li>
+          <li><a href="/component">Component Diagram</a> - Shows system architecture and component relationships</li>
+        </ul>
       </div>
     </section>
   </div>
