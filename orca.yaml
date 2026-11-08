@@ -1,0 +1,5 @@
+scripts:
+  setup: |
+    set -e
+    cd "$(git rev-parse --show-toplevel)"
+    npm ci
